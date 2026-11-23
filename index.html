@@ -108,7 +108,7 @@ async function boot(){
     for(const m of['app','auth','firestore'])await loadJs(b+m+'-compat.js');
     firebase.initializeApp(CFG);
     firebase.auth().onAuthStateChanged(u=>{
-      $('#login').hidden=!!u;if(!u)return;
+      $('#login').style.display=u?'none':'flex';if(!u)return;
       ref=firebase.firestore().collection('hogares').doc(u.uid);
       ref.onSnapshot(s=>{
         if(s.metadata.hasPendingWrites)return;

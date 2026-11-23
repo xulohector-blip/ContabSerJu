@@ -334,7 +334,17 @@ async function imp(f){
 /* ===== PWA: manifiesto en línea ===== */
 const ic="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="20" fill="#0f766e"/><text x="48" y="64" font-size="52" text-anchor="middle" fill="#fff" font-family="sans-serif">€</text></svg>');
 $('#mf').href=URL.createObjectURL(new Blob([JSON.stringify({name:'Cuentas de pareja',short_name:'Cuentas',display:'standalone',start_url:location.href,background_color:'#0e1514',theme_color:'#0f766e',icons:[{src:ic,sizes:'any',type:'image/svg+xml'}]})],{type:'application/manifest+json'}));
-boot();
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyCWOxEpJ1RFhTsumA9Hfvhy8I5KaSPd5p8",
+  authDomain: "cuenta-pareja.firebaseapp.com",
+  projectId: "cuenta-pareja",
+  storageBucket: "cuenta-pareja.firebasestorage.app",
+  messagingSenderId: "896264366906",
+  appId: "1:896264366906:web:069986d43f5b814272fe03"
+};
+if(!localStorage.getItem('fbcfg')) localStorage.setItem('fbcfg', JSON.stringify(firebaseConfig));
+  boot();
 </script>
 </body>
 </html>
